@@ -15,7 +15,7 @@ timezone: Asia/Shanghai
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
-title: Ethel                          # the main title
+title: ethel                          # the main title
 
 tagline: A little blog for everyone   # it will display as the sub-title
 
@@ -36,7 +36,7 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
+  name: ethelpoe
   email: example@doamin.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
