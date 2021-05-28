@@ -11,6 +11,10 @@ pin: true
 
 1- Follow the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of `Ruby`, `RubyGems`, `Jekyll` and `Bundler`.
 
+
+
+ya funciona!!!!
+
 ## Installation
 
 There are two ways to get the theme:
