@@ -16,13 +16,13 @@ baseurl: ''
 lang: en-US
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone: Asia/Kolkata
+timezone: America/Los_Angeles
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
 title: Ethel Poe                        # the main title
 
-tagline: Code and Solder # it will display as the sub-title
+tagline: Code and things # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   Electronics and Software Bio Log
@@ -33,13 +33,13 @@ github:
   username: ethelpoe            # change to your github username
 
 twitter:
-  username: 0xsalfar           # change to your twitter username
+  username: ethel69761841 # change to your twitter
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Ethel
-  email: mail@Ethel.com            # change to your email address
+  email: eth3lpoe@gmail.com            # change to your email address
   links:
     # The first element serves as the copyright owner's link
     - https://twitter.com/ethelpoe.github.io     # change to your twitter homepage
