@@ -22,7 +22,7 @@ void draw() {
 }
 ```
 
-![](https://lh3.google.com/u/0/d/1dJxCZmcJZppsQlw5hWwVFLF02NNM_daj=w962-h902-iv1)
+<img src="https://lh3.google.com/u/0/d/1dJxCZmcJZppsQlw5hWwVFLF02NNM_daj=w962-h902-iv1" width="200px" height="300px"  />
 
 ahora dibujaremos al **player** 
 
