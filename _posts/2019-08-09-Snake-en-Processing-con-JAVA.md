@@ -47,20 +47,16 @@ void draw() {
 }
 ```
 
+<img src="https://lh3.google.com/u/0/d/1CUETKmXlt2Pa7ZAKaQjlIEPe9XXxSbvt=w657-h910-iv1" style="zoom:50%" />
+
 Donde `cellSize` es el tamano de cada celda por donde se movera  el snake y `snakeSegments` es un `ArrayList` de objetos  tipo  `PVector`.
 
 y ahora moveremos a nuestro player a la derecha.
 
 ```java
-int gridXCount = 20;
-int gridYCount = 15;
 int cellSize = 20; 
-int total = 0;
-int x = 0;
-int y = 0;
 
 ArrayList<PVector> snakeSegments = new ArrayList<PVector>();
-
 
 void setup() {
 
@@ -76,29 +72,23 @@ void draw() {
   background(51);
   for(PVector v : snakeSegments) {
       fill(150,255,40);
-      rect((v.x-1)*cellSize, (v.y-1)*cellSize, cellSize-1, 			cellSize-1);
+      rect((v.x-1)*cellSize, (v.y-1)*cellSize, cellSize-1,cellSize-1);
     }
-  if(total > 0){
-    snakeSegments.add(new PVector(x, y));
-  }
-  
+
   PVector nextPosition = snakeSegments.get(0);
   float nextXPosition = nextPosition.x+1;
   float nextYPosition = nextPosition.y;
-  snakeSegments.add(0,new PVector(nextXPosition, 				nextYPosition));
+  snakeSegments.add(0,new PVector(nextXPosition,nextYPosition));
   snakeSegments.remove(3);
 }
 ```
 
+<img src="https://lh3.google.com/u/0/d/1lIXN2hSM2mM2AJQtp8TLdPURIFM24YOe=w958-h910-iv1" style="zoom:50%" />
+
 lo siguiente es mover a nuestro player en todas las direcciones
 
 ```java
-int gridXCount = 20;
-int gridYCount = 15;
 int cellSize = 20; 
-int total = 0;
-int x = 0;
-int y = 0;
 String direccion = "right"; 
 
 ArrayList<PVector> snakeSegments = new ArrayList<PVector>();
@@ -118,12 +108,9 @@ void draw() {
   background(51);
   for(PVector v : snakeSegments) {
       fill(150,255,40);
-      rect((v.x-1)*cellSize, (v.y-1)*cellSize, cellSize-1, 			cellSize-1);
+      rect((v.x-1)*cellSize, (v.y-1)*cellSize, cellSize-1, cellSize-1);
     }
-  if(total > 0){
-    snakeSegments.add(new PVector(x, y));
-  }
-  
+
   PVector nextPosition = snakeSegments.get(0);
   float  nextXPosition = nextPosition.x;
   float nextYPosition = nextPosition.y;
@@ -138,7 +125,7 @@ void draw() {
     nextYPosition = nextYPosition - 1;
   }
   
-  snakeSegments.add(0,new PVector(nextXPosition, 				nextYPosition));
+  snakeSegments.add(0,new PVector(nextXPosition, nextYPosition));
   snakeSegments.remove(3);
 }
 void keyPressed(){
@@ -155,15 +142,12 @@ void keyPressed(){
 }
 ```
 
+<img src="https://lh3.google.com/u/0/d/1ISNu1nSUh9_exBqUBI2ZGssVUAdqFgR4=w657-h930-iv1" style="zoom:50%" />
+
 como veran el codigo empieza a hacer cada vez mas largo y por ende corremos el riesgo que sea mas complicado encontrar un error, ademas hemos anadido una nueva funcion `keyPressed()` por que no empezar a reordenar todo en funciones.
 
 ```java
-int gridXCount = 20;
-int gridYCount = 15;
 int cellSize = 20; 
-//int total = 0;
-int x = 0;
-int y = 0;
 float nextXPosition;
 float nextYPosition;
 String direccion = "right"; 
@@ -189,20 +173,14 @@ void update(){
     nextXPosition = nextPosition.x;
     nextYPosition = nextPosition.y;
     direccion();
-    snakeSegments.add(0,new PVector(nextXPosition, 					nextYPosition));
+    snakeSegments.add(0,new PVector(nextXPosition,  nextYPosition));
     snakeSegments.remove(3);
 }
 void drawSnake(){
     for(PVector v : snakeSegments) {
       fill(150,255,40);
-      rect((v.x-1)*cellSize, (v.y-1)*cellSize, cellSize-1, 			cellSize-1);
+      rect((v.x-1)*cellSize, (v.y-1)*cellSize, cellSize-1, cellSize-1);
     }
-    snakeSegments.add(new PVector(x, y));
-    
-  /*if(total > 0){
-    snakeSegments.add(new PVector(x, y));
-  }
-  */
 }
 void direccion(){
   if(direccion == "right"){
@@ -231,6 +209,11 @@ void keyPressed(){
 se puede mejorar pero por ahora si algo falla, sera mas facil debuggear el error. sigamos con nuestro juego, como ven nuetro pequeno player verde de pierde una vez tocamos algun borde de la pantalla de juego, algo tenemos que hacer para que esto no pase. 
 
 ```java
+int gridXCount = 30;
+int gridYCount = 30;
+```
+
+```java
 void direccion(){
   if(direccion == "right"){
       nextXPosition = nextXPosition + 1;
@@ -256,10 +239,27 @@ void direccion(){
 }
 ```
 
+<img src="https://lh3.google.com/u/0/d/1MLDAt2Lsy2sr4MhxvW5hlxoVPwzusww_=w657-h930-iv1" style="zoom:50%" />
+
 yei!! ahora nuestro amigo verde se ve un poco mejor, y gracias a las funciones no este post no se hara mas largo.
 
 ```java
 PVector food;
+```
+
+```java
+void setup(){
+...
+	foodLocation();
+}
+```
+
+```java
+void draw(){
+...
+  fill(255,0,100);
+  rect((food.x -1)*cellSize,(food.y-1)*cellSize,cellSize-1,cellSize-1);
+}
 ```
 
 ```java
@@ -270,12 +270,14 @@ void foodLocation(){
 
 el anterior seria el codigo para definir la posicion del cuadrito parpadeante que servira para que nuestro player cresca, pero no es sufuciente para dibujarlo en la pantalla y que interactue con nuestro amigo verde.
 
+<img src="https://lh3.google.com/u/0/d/1ELcfuweKm5NVmK6wv-vSd9UfKchcExnb=w652-h910-iv1" style="zoom:50%" />
+
+entonces tenemos que hacer que cada que nuestro snake se coma la manzana el largo del snake cresca, escificamento cuando la cordenada de el elemento `snakeSegments.get(0)`  y la cordenada generada por `foodLocation()` sean iguales.
+
 ```java
 int gridXCount = 30;
 int gridYCount = 30;
 int cellSize = 20; 
-//float x = 0;
-//float y = 0;
 float nextXPosition;
 float nextYPosition;
 String direccion = "right"; 
@@ -318,7 +320,6 @@ void update(){
         snakeSegments.remove(snakeSegments.size()-1);
       }
       snakeSegments.add(0,new PVector(nextXPosition, nextYPosition));
-      //snakeSegments.add(new PVector(x, y));
     }
     
 }
@@ -352,15 +353,9 @@ void direccion(){
     }
 }
 void foodLocation(){
-  food = new PVector(floor(random(1,gridXCount)),floor(random(1,gridYCount)));
-  //food.mult(cellSize);
-  
-  fill(255,0,100);
-  rect((food.x -1)*cellSize,(food.y-1)*cellSize,cellSize-1,cellSize-1);
-  
+  food = new PVector(floor(random(1,gridXCount)),floor(random(1,gridYCount)));  
 }
 boolean eat(){
-  //float d = dist(x,y,pos.x,pos,y);
   if(nextXPosition == food.x && nextYPosition == food.y){
     total++;
     println(total);
@@ -382,7 +377,9 @@ void keyPressed(){
 }
 ```
 
-ahora nuestro juego se ve un poco mas descente y funcional, pero aun es aburrido porque no es posible perder.
+<img src="https://lh3.google.com/u/0/d/172mC6C3qdu0D6I0NJDWq5g10hWzX4aC3=w523-h555-iv1" style="zoom:50%" />
+
+ahora nuestro juego se ve un poco mas descente y funcional, pero aun es aburrido porque no es posible perder, debemos solucionar eso, entonces creamos nuestra funcion `death()`.
 
 ```java
 void death(){
@@ -400,16 +397,17 @@ debemos poner la funcion `death()` y agregarla a nuestro inicio
 
 ```java
 void death(){
-    for(int i = 3; i < snakeSegments.size();i++ ){
+  for(int i = 3; i < snakeSegments.size();i++ ){
     PVector pos = snakeSegments.get(i);
     if(nextXPosition == pos.x && nextYPosition == pos.y && i != snakeSegments.size() ){
       println("endgame");
       delay(2000);
       itsAlive = false;
+      reset();
     }
   }
   if(itsAlive){
-    drawSnake();
+    drawSnake(colorx,colory,colorz);
     update();
     if(eat()){
       foodLocation();
@@ -418,15 +416,15 @@ void death(){
 }
 ```
 
-asi quedaria la funcion `death()` para que cuando nuestro player choque contra si mismo el juego se pause 2seg. Agregaremos tambien un cambio de color para que la muerte sea mas visible y que el juego se reinicie. Asi se veria nuestro codigo sin la pantallas de gameover y pantalla de inicio.
+asi quedaria nuestro codigo completo ya con la funcion `death()` para que cuando nuestro player choque contra si mismo el juego se pause 2seg. Agregaremos tambien un cambio de color para que la muerte sea mas visible y que el juego se reinicie. Asi se veria nuestro codigo sin la pantallas de gameover y pantalla de inicio.
 
 ```java
 int gridXCount = 30;
 int gridYCount = 30;
 int cellSize = 20; 
-int x =150;
-int y =255;
-int z =40;
+int colorx =150;
+int colory =255;
+int colorz =40;
 float nextXPosition;
 float nextYPosition;
 String direccion = "right"; 
@@ -464,8 +462,8 @@ void update(){
       snakeSegments.add(0,new PVector(nextXPosition, nextYPosition));
     } 
 }
-void drawSnake(int x,int y,int z){
-    fill(x,y,z);
+void drawSnake(int colorx,int colory,int colorz){
+    fill(colorx,colory,colorz);
     for(PVector v : snakeSegments) {
       rect((v.x-1)*cellSize, (v.y-1)*cellSize, cellSize-1, 			cellSize-1);
     }  
@@ -500,7 +498,6 @@ void foodLocation(){
   rect((food.x -1)*cellSize,(food.y-1)*cellSize,cellSize-		1,cellSize-1);
 }
 boolean eat(){
-  //float d = dist(x,y,pos.x,pos,y);
   if(nextXPosition == food.x && nextYPosition == food.y){
     total++;
     println(total);
@@ -520,7 +517,7 @@ void death(){
     }
   }
   if(itsAlive){
-    drawSnake(x,y,z);
+    drawSnake(colorx,colory,colorz);
     update();
     if(eat()){
       foodLocation();
@@ -550,10 +547,22 @@ void keyPressed(){
 }
 ```
 
+<details>
+<summary>I could use some help...</summary>
+<p>
 
+```c#
+public class Order
+{
+    public int OrderId { get; set; }
+    public int CustomerId { get; set; }
 
+    public List<int> Products { get; set; }
+}
+\```
 
-
+</p>
+</details> 
 
 
 
