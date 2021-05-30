@@ -1,9 +1,11 @@
+---
 title: Snake Game with Processing and Java
 author: ethelpoe
 date: 2019-08-09 20:55:00 +0800
 categories: [Blogging, Tutorial]
 tags: [games]
 pin: false
+---
 
 ## Creando el background
 
@@ -377,7 +379,21 @@ void keyPressed(){
 
 <img src="https://lh3.google.com/u/0/d/172mC6C3qdu0D6I0NJDWq5g10hWzX4aC3=w523-h555-iv1" style="zoom:50%" />
 
-ahora nuestro juego se ve un poco mas descente y funcional, pero aun es aburrido porque no es posible perder, debemos solucionar eso, entonces creamos nuestra funcion `death()`. Debemos poner la funcion `death()` y agregarla a nuestro inicio
+ahora nuestro juego se ve un poco mas descente y funcional, pero aun es aburrido porque no es posible perder, debemos solucionar eso, entonces creamos nuestra funcion `death()`.
+
+```java
+void death(){
+    for(int i = 3; i < snakeSegments.size();i++ ){
+    PVector pos = snakeSegments.get(i);
+    if(nextXPosition == pos.x && nextYPosition == pos.y && i != snakeSegments.size() ){
+      println("endgame");
+      itsAlive = false;
+    }
+  }
+
+```
+
+debemos poner la funcion `death()` y agregarla a nuestro inicio
 
 ```java
 void death(){
@@ -531,6 +547,6 @@ void keyPressed(){
 }
 ```
 
-
-
 [PVector]: https://processing.org/reference/PVector.html
+
+
