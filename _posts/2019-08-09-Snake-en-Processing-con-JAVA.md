@@ -547,22 +547,19 @@ void keyPressed(){
 }
 ```
 
-<details>
-<summary>I could use some help...</summary>
+## collapsible markdown?
+
+<details><summary>CLICK ME</summary>
 <p>
 
-```c#
-public class Order
-{
-    public int OrderId { get; set; }
-    public int CustomerId { get; set; }
+#### yes, even hidden code blocks!
 
-    public List<int> Products { get; set; }
-}
-\```
+```python
+print("hello world!")
+```
 
 </p>
-</details> 
+</details>
 
 
 
