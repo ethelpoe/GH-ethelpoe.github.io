@@ -380,19 +380,6 @@ void keyPressed(){
 <img src="https://lh3.google.com/u/0/d/172mC6C3qdu0D6I0NJDWq5g10hWzX4aC3=w523-h555-iv1" style="zoom:50%" />
 
 ahora nuestro juego se ve un poco mas descente y funcional, pero aun es aburrido porque no es posible perder, debemos solucionar eso, entonces creamos nuestra funcion `death()`.
-
-```java
-void death(){
-    for(int i = 3; i < snakeSegments.size();i++ ){
-    PVector pos = snakeSegments.get(i);
-    if(nextXPosition == pos.x && nextYPosition == pos.y && i != snakeSegments.size() ){
-      println("endgame");
-      itsAlive = false;
-    }
-  }
-
-```
-
 debemos poner la funcion `death()` y agregarla a nuestro inicio
 
 ```java
@@ -547,6 +534,30 @@ void keyPressed(){
 }
 ```
 
-[PVector]: https://processing.org/reference/PVector.html
+podemos agregar solo para que este completo una pantallita que simula cuantos puntos hemos generado.
 
+como actividad puedes intentar que los puntajes funcionen correctamente.
+
+```java
+void Scoreboard(){
+  fill(250, 250, 250);
+  textSize(30);
+  text( "Snake Game", width/2.8, 30);
+  fill(250, 250, 250);
+  textSize(15);
+  text( "By: ethel", width/2.8, 50);
+  
+  fill(250, 250, 250);
+  textSize(17);
+  text( "Score: " + total, 30, 30);
+  
+  fill(250, 250, 250);
+  textSize(17);
+  text( "High Score: " + total, 30, 50);
+}
+```
+
+
+
+[PVector]: https://processing.org/reference/PVector.html
 
