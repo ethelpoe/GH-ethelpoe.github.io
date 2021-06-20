@@ -24,36 +24,45 @@ void draw() {
 }
 ```
 
-<img src="https://lh3.google.com/u/0/d/1dJxCZmcJZppsQlw5hWwVFLF02NNM_daj=w962-h902-iv1" style="zoom:50%"/>
+<img src="https://lh3.google.com/u/0/d/1dJxCZmcJZppsQlw5hWwVFLF02NNM_daj=w1920-h942-iv1" style="zoom:50%"/>
 
-ahora dibujaremos al **player** 
+Ahora dibujaremos al **player** 
 
 ```java
+//size of cell
 int cellSize = 20;
 
+//ArrayList for store the segments of our snake
 ArrayList<PVector> snakeSegments = new ArrayList<PVector>();
 
 
 void setup() {
   ...
+      
+  //add elements to our ArrayList    
   snakeSegments.add(new PVector(3, 1));
   snakeSegments.add(new PVector(2, 1));
   snakeSegments.add(new PVector(1, 1));
   
 }
 void draw() {
+  //elements of player
   for(PVector v : snakeSegments) {
+      //color of player
       fill(150,255,40);
-      rect((v.x-1)*cellSize, (v.y-1)*cellSize, cellSize-1, 			cellSize-1);
+      //draw a rect
+      rect((v.x-1)*cellSize, (v.y-1)*cellSize, cellSize-1,cellSize-1);
     }
 }
 ```
 
-<img src="https://drive.google.com/file/d/1CUETKmXlt2Pa7ZAKaQjlIEPe9XXxSbvt/view?usp=sharing" style="zoom:50%" />
+<img src="https://lh3.google.com/u/0/d/1CUETKmXlt2Pa7ZAKaQjlIEPe9XXxSbvt=w1485-h942-iv1" style="zoom:50%" />
 
 Donde `cellSize` es el tamano de cada celda por donde se movera  el snake y `snakeSegments` es un `ArrayList` de objetos  tipo  `PVector`.
 
-y ahora moveremos a nuestro player a la derecha.
+Y ahora tenemos que hacer que nuestro player se mueva por nuestra pantalla, por ahora solo se movera a la derecha, pero aun no responde a nuestras ordenes.
+
+Recuerda que movimos el `background(51)` de la funcion `setup()` a la funcion `draw()`.
 
 ```java
 int cellSize = 20; 
@@ -63,18 +72,16 @@ ArrayList<PVector> snakeSegments = new ArrayList<PVector>();
 void setup() {
 
   size(600, 600);
- 
+  //we move background to draw()
   frameRate(10);
-  snakeSegments.add(new PVector(3, 1));
-  snakeSegments.add(new PVector(2, 1));
-  snakeSegments.add(new PVector(1, 1));
+  //add elements to our ArrayList
+  ...
   
 }
 void draw() {
   background(51);
-  for(PVector v : snakeSegments) {
-      fill(150,255,40);
-      rect((v.x-1)*cellSize, (v.y-1)*cellSize, cellSize-1,cellSize-1);
+  //elements of the player
+  ...
     }
 
   PVector nextPosition = snakeSegments.get(0);
