@@ -120,10 +120,12 @@ void draw() {
       rect((v.x-1)*cellSize, (v.y-1)*cellSize, cellSize-1, cellSize-1);
     }
 
+  //get the head of our player
   PVector nextPosition = snakeSegments.get(0);
   float  nextXPosition = nextPosition.x;
   float nextYPosition = nextPosition.y;
   
+  //update our var direccion
   if(direccion == "right"){
     nextXPosition = nextXPosition + 1;
   }else if(direccion == "left"){
@@ -137,6 +139,7 @@ void draw() {
   snakeSegments.add(0,new PVector(nextXPosition, nextYPosition));
   snakeSegments.remove(3);
 }
+//check the key that is pressed
 void keyPressed(){
   if(key == 'd'){
     direccion = "right";
@@ -153,7 +156,7 @@ void keyPressed(){
 
 <img src="https://lh3.google.com/u/0/d/1ISNu1nSUh9_exBqUBI2ZGssVUAdqFgR4=w657-h930-iv1" style="zoom:50%" />
 
-como veran el codigo empieza a hacer cada vez mas largo y por ende corremos el riesgo que sea mas complicado encontrar un error, ademas hemos anadido una nueva funcion `keyPressed()` por que no empezar a reordenar todo en funciones.
+El código empieza a hacer cada vez más largo y por ende corremos el riesgo que sea más complicado encontrar un error, además hemos añadido una nueva función `keyPressed()` . Por qué no empezar a reordenar todo en funciones.
 
 ```java
 int cellSize = 20; 
@@ -215,7 +218,7 @@ void keyPressed(){
 }
 ```
 
-se puede mejorar pero por ahora si algo falla, sera mas facil debuggear el error. sigamos con nuestro juego, como ven nuetro pequeno player verde de pierde una vez tocamos algun borde de la pantalla de juego, algo tenemos que hacer para que esto no pase. 
+El código anterior tiene mucho que mejorar, pero por ahora si algo falla, será mas fácil debuggear el error. Sigamos con nuestro juego, como ven nuestro pequeño player verde deja de ser visible una vez tocamos algún borde de la pantalla de juego, algo tenemos que hacer para que esto no pase. No olvidar que para que la función `dirección()` funcione hay que mandarla llamar y las variables `gridXCound` y `gridYCound` serán colocadas como globales.
 
 ```java
 int gridXCount = 30;
@@ -250,7 +253,7 @@ void direccion(){
 
 <img src="https://lh3.google.com/u/0/d/1MLDAt2Lsy2sr4MhxvW5hlxoVPwzusww_=w657-h930-iv1" style="zoom:50%" />
 
-yei!! ahora nuestro amigo verde se ve un poco mejor, y gracias a las funciones no este post no se hara mas largo.
+Yei!! ahora nuestro amigo verde se ve un poco mejor, y gracias a las funciones no esté post no se hará más largo. Ahora falta poner nuestro item.
 
 ```java
 PVector food;
@@ -277,11 +280,11 @@ void foodLocation(){
 }
 ```
 
-el anterior seria el codigo para definir la posicion del cuadrito parpadeante que servira para que nuestro player cresca, pero no es sufuciente para dibujarlo en la pantalla y que interactue con nuestro amigo verde.
+El anterior seria el código para definir la posición del ítem parpadeante que servirá para que nuestro player crezca, pero no es suficiente para dibujarlo en la pantalla y que interactúe con nuestro amigo verde.
 
 <img src="https://lh3.google.com/u/0/d/1ELcfuweKm5NVmK6wv-vSd9UfKchcExnb=w652-h910-iv1" style="zoom:50%" />
 
-entonces tenemos que hacer que cada que nuestro snake se coma la manzana el largo del snake cresca, escificamento cuando la cordenada de el elemento `snakeSegments.get(0)`  y la cordenada generada por `foodLocation()` sean iguales.
+Entonces tenemos que hacer que cada vez que nuestro snake se coma el ítem el largo del snake crezca, específicamente cuando la coordenada del elemento `snakeSegments.get(0)` y la coordenada generada por `foodLocation()` sean iguales. Así se verá el código hasta ahora con todos los cambios hechos.
 
 ```java
 int gridXCount = 30;
@@ -388,8 +391,7 @@ void keyPressed(){
 
 <img src="https://lh3.google.com/u/0/d/172mC6C3qdu0D6I0NJDWq5g10hWzX4aC3=w523-h555-iv1" style="zoom:50%" />
 
-ahora nuestro juego se ve un poco mas descente y funcional, pero aun es aburrido porque no es posible perder, debemos solucionar eso, entonces creamos nuestra funcion `death()`.
-debemos poner la funcion `death()` y agregarla a nuestro inicio
+Ahora nuestro juego se ve un poco más decente y funcional, pero aun es aburrido porque no es posible perder, debemos solucionar eso, entonces creamos nuestra función `death()`. Debemos poner la función `death()` y agregarla a nuestro inicio.
 
 ```java
 void death(){
@@ -412,7 +414,7 @@ void death(){
 }
 ```
 
-asi quedaria nuestro codigo completo ya con la funcion `death()` para que cuando nuestro player choque contra si mismo el juego se pause 2seg. Agregaremos tambien un cambio de color para que la muerte sea mas visible y que el juego se reinicie. Asi se veria nuestro codigo sin la pantallas de gameover y pantalla de inicio.
+Así quedaría nuestro código completo ya con la función `death()` para que cuando nuestro player choque contra si mismo el juego se pause 2seg. Así como también el reinicio del juego. Así se vería nuestro código sin la pantallas de gameover y pantalla de inicio.
 
 ```java
 int gridXCount = 30;
@@ -543,9 +545,9 @@ void keyPressed(){
 }
 ```
 
-podemos agregar solo para que este completo una pantallita que simula cuantos puntos hemos generado.
+Podemos agregar también solo para que este un poco más completo una pantallita que simula cuantos puntos hemos generado.
 
-como actividad puedes intentar que los puntajes funcionen correctamente.
+Como actividad puedes intentar que los puntajes funcionen correctamente.
 
 ```java
 void Scoreboard(){
