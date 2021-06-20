@@ -13,16 +13,18 @@ Primero crearemos el background en donde se movera nuestro **player**
 
 ```java
 void setup() {
-
+//size of the screen
   size(600, 600);
+//color of the background
   background(51); 
+//framerate of our game
   frameRate(10);
 }
 void draw() {
 }
 ```
 
-<img src="https://lh3.google.com/u/0/d/1dJxCZmcJZppsQlw5hWwVFLF02NNM_daj=w962-h902-iv1" style="zoom:50%" />
+<img src="https://lh3.google.com/u/0/d/1dJxCZmcJZppsQlw5hWwVFLF02NNM_daj=w962-h902-iv1" style="zoom:50%"/>
 
 ahora dibujaremos al **player** 
 
@@ -47,7 +49,7 @@ void draw() {
 }
 ```
 
-<img src="https://lh3.google.com/u/0/d/1CUETKmXlt2Pa7ZAKaQjlIEPe9XXxSbvt=w657-h910-iv1" style="zoom:50%" />
+<img src="https://drive.google.com/file/d/1CUETKmXlt2Pa7ZAKaQjlIEPe9XXxSbvt/view?usp=sharing" style="zoom:50%" />
 
 Donde `cellSize` es el tamano de cada celda por donde se movera  el snake y `snakeSegments` es un `ArrayList` de objetos  tipo  `PVector`.
 
